@@ -1,12 +1,31 @@
 const URL = "https://valorant-api.com/v1/weapons";
 
-async function getweapons(URL) {
-  return await fetch(URL);
-}
+const DOM = {
+  mommy: document.getElementById("mommy"),
+};
 
-async function getskin(URL2) {
-  const response = await fetch(URL2);
-  const data = await response.json();
-  console.log(response);
+async function getweapons(URL) {
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
-getskin(URL2);
+async function main(name) {
+  let big = await getweapons(URL);
+
+  console.log(big);
+  big.data
+    .filter((weapon) => weapon.displayName == name)
+    .forEach((weapon) => {
+      DOM.mommy.insertAdjacentHTML(
+        "beforeend",
+        `<div>
+         <img src="${weapon.displayIcon}" >
+      </div>`
+      );
+    });
+}
+main("Odin");
