@@ -1,7 +1,11 @@
 const URL = "https://valorant-api.com/v1/weapons";
+import "./style.css";
 
 const DOM = {
   mommy: document.getElementById("mommy"),
+  gunbutton: document.getElementById("guns"),
+  list: document.getElementById("list"),
+  popup: document.getElementById("pop-up1"),
 };
 
 async function getweapons(URL) {
@@ -29,3 +33,16 @@ async function main(name) {
     });
 }
 main("Odin");
+
+async function makeweaponbuttons() {
+  let big = await getweapons(URL);
+  big.data.forEach((weapon) => {
+    DOM.list.insertAdjacentHTML(
+      "beforeend",
+      ` <button id="namebutton">
+    ${weapon.displayName}</button>`
+    );
+  });
+}
+makeweaponbuttons();
+DOM.gunbutton.addEventListener("click");
