@@ -6,6 +6,7 @@ const DOM = {
   gunbutton: document.getElementById("guns"),
   list: document.getElementById("list"),
   popup: document.getElementById("pop-up1"),
+  namebutton: document.getElementById("namebutton"),
 };
 
 async function getweapons(URL) {
@@ -42,7 +43,18 @@ async function makeweaponbuttons() {
       ` <button id="namebutton">
     ${weapon.displayName}</button>`
     );
+    document
+      .getElementById("namebutton")
+      .addEventListener("click", function () {});
   });
 }
+
 makeweaponbuttons();
-DOM.gunbutton.addEventListener("click");
+DOM.popup.style.display = "none";
+DOM.gunbutton.addEventListener("click", function () {
+  if (DOM.popup.style.display == "none") {
+    DOM.popup.style.display = "inline";
+  } else if (DOM.popup.style.display == "inline") {
+    DOM.popup.style.display = "none";
+  }
+});
