@@ -33,19 +33,20 @@ async function main(name) {
       );
     });
 }
-main("Odin");
 
 async function makeweaponbuttons() {
   let big = await getweapons(URL);
   big.data.forEach((weapon) => {
     DOM.list.insertAdjacentHTML(
       "beforeend",
-      ` <button id="namebutton">
+      ` <button id="${weapon.displayName}">
     ${weapon.displayName}</button>`
     );
     document
-      .getElementById("namebutton")
-      .addEventListener("click", function () {});
+      .getElementById(weapon.displayName)
+      .addEventListener("click", function () {
+        main(weapon.displayName);
+      });
   });
 }
 
