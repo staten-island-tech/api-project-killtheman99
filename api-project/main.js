@@ -20,15 +20,15 @@ async function getweapons(URL) {
 }
 async function main(name) {
   let big = await getweapons(URL);
+  DOM.mommy.innerHTML = "";
 
-  console.log(big);
   big.data
     .filter((weapon) => weapon.displayName == name)
     .forEach((weapon) => {
       DOM.mommy.insertAdjacentHTML(
         "beforeend",
-        `<div>
-         <img src="${weapon.displayIcon}" >
+        `<div class="father">
+         <img id="gunimg" src="${weapon.displayIcon}" >
       </div>`
       );
     });
@@ -39,7 +39,7 @@ async function makeweaponbuttons() {
   big.data.forEach((weapon) => {
     DOM.list.insertAdjacentHTML(
       "beforeend",
-      ` <button id="${weapon.displayName}">
+      ` <button class="imgbutton" id="${weapon.displayName}">
     ${weapon.displayName}</button>`
     );
     document
