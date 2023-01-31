@@ -1,3 +1,7 @@
+body {
+  background-image: url(https://pbs.twimg.com/media/EZdgO14WoAINDOG.jpg:large);
+}
+
 .Daddy {
   height: 50px;
   width: 100%;
@@ -17,6 +21,8 @@
   text-align: center;
   display: none;
   height: 85%;
+  background-color: lightblue;
+  box-shadow: black;
 }
 .imgbutton {
   width: 200px;
@@ -31,4 +37,19 @@
   display: flex;
   justify-content: center;
   margin-top: 300px;
+}
+
+.gunsbtn {
+  margin: 20px;
+  text-align: center;
+}
+
+#guns {
+  width: 200px;
+  height: 30px;
+  transition: 1s;
+}
+
+#guns:hover {
+  transform: scale(1.05);
 }
